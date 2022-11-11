@@ -16,15 +16,17 @@
   <body>
     <div class="container weather-app">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-6">
           <img
             src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
             alt="sunny"
           />
-          12°C | °F
-        </div>
-        <div class="col-md-4">
-          <ul>
+          <div class="temp-unit">
+            <span class="temp">12</span>
+            <span class="unit">°C | °F</span>
+          </div>
+
+          <ul class="weather-details">
             <li>Precipitation: 2%</li>
             <li>Humidity: 78%</li>
             <li>Wind: 15 mph</li>
@@ -38,12 +40,15 @@
           </ul>
         </div>
       </div>
-      <small>
+
+      
+      <br />
+      <footer>
         <a href="https://github.com/suzStar/vanillaWeatherApp" target="_blank"
           >Open-source code</a
         >
         by Suzanne Sharman
-      </small>
+      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
