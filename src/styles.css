@@ -1,6 +1,10 @@
-.weather-app {
+.weather-app-wrapper {
   max-width: 650px;
   margin: 30px auto;
+  font-family: Google Sans, arial, sans-serif;
+}
+
+.weather-app {
   padding: 20px;
   border: 1px solid #dadce0;
   border-radius: 5px;
@@ -9,40 +13,40 @@
 .local-details {
   text-align: right;
   font-size: 16px;
-  line-height: 24px;
   margin-top: 6px;
   padding-left: 6px;
   vertical-align: top;
   list-style-type: none;
 }
 .location {
-  font-family: Google Sans, arial, sans-serif;
   font-weight: 400;
   color: #202124;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 20px;
 }
 
 .dayTime {
   color: #70757a;
   font-size: 16px;
-  line-height: 20px;
 }
 
 .local-condition {
   color: #70757a;
   font-size: 16px;
-  line-height: 20px;
 }
 
+.current-weather-icon {
+  display: inline-block;
+  vertical-align: top;
+  width: 22%;
+}
 .weather-details {
   text-align: left;
   color: #70757a;
   display: inline-block;
   font-size: 12px;
-  line-height: 16px;
+  line-height: 15px;
   padding-left: 9px;
-  padding-top: 6px;
+  padding-top: 15px;
   list-style-type: none;
 }
 
@@ -54,17 +58,14 @@
 .temp {
   color: #202124;
   font-weight: 400;
-  font-size: 48px;
-  line-height: 42px;
+  font-size: 55px;
 }
 
 .unit {
   color: #202124;
   font-size: 16px;
-  line-height: 24px;
-  margin-top: 6px;
   padding-left: 6px;
-  vertical-align: top;
+  vertical-align: 30px;
 }
 
 .forecast {

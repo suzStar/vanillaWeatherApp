@@ -11,128 +11,130 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
-    <title>SheCodes</title>
+    <title>WeatherApp</title>
   </head>
   <body>
-    <div class="container weather-app">
-      <div class="row">
-        <div class="col-md-6">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-            alt="sunny"
-          />
-          <div class="temp-unit">
-            <span class="temp">12</span>
-            <span class="unit">°C | °F</span>
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <form class="citySearch">
+            <div class="input-group rounded">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search here"
+                aria-label="Search"
+                aria-describedby="search-addon"
+              />
+              <span class="btn btn-primary border-2" id="search-addon">
+                SEARCH
+              </span>
+            </div>
+          </form>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-7">
+              <img
+                class="current-weather-icon"
+                src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                alt="sunny"
+              />
+              <div class="temp-unit">
+                <span class="temp">12</span
+                ><span class="unit"
+                  ><a href="#">°C</a> | <a href="#">°F</a></span
+                >
+              </div>
+
+              <ul class="weather-details">
+                <li>Precipitation: 2%</li>
+                <li>Humidity: 78%</li>
+                <li>Wind: 15 mph</li>
+              </ul>
+            </div>
+            <div class="col-md-5">
+              <ul class="local-details">
+                <li class="location">Princes Risborough, UK</li>
+                <li class="dayTime">Thursday 14:00</li>
+                <li class="local-condition">Cloudy</li>
+              </ul>
+            </div>
           </div>
 
-          <ul class="weather-details">
-            <li>Precipitation: 2%</li>
-            <li>Humidity: 78%</li>
-            <li>Wind: 15 mph</li>
-          </ul>
+          <hr />
+          <div class="container forecast">
+            <div class="row weekDays">
+              <div class="col">Tue</div>
+              <div class="col">Wed</div>
+              <div class="col">Thurs</div>
+              <div class="col">Fri</div>
+              <div class="col">Sat</div>
+            </div>
+            <div class="row forecastImage">
+              <div class="col">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Current Weather"
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Current Weather"
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Current Weather"
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Current Weather"
+                />
+              </div>
+              <div class="col">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Current Weather"
+                />
+              </div>
+            </div>
+            <div class="row forecastTemp">
+              <div class="col">
+                <span class="high">26°</span>
+                <span class="low">26°</span>
+              </div>
+              <div class="col">
+                <span class="high">26°</span>
+                <span class="low">26°</span>
+              </div>
+              <div class="col">
+                <span class="high">26°</span>
+                <span class="low">26°</span>
+              </div>
+              <div class="col">
+                <span class="high">26°</span>
+                <span class="low">26°</span>
+              </div>
+              <div class="col">
+                <span class="high">26°</span>
+                <span class="low">26°</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-md-6">
-          <ul class="local-details">
-            <li class="location">Princes Risborough, UK</li>
-            <li class="dayTime">Thursday 14:00</li>
-            <li class="local-condition">Cloudy</li>
-          </ul>
-        </div>
+        <small>
+          <a href="https://github.com/suzStar/vanillaWeatherApp" target="_blank"
+            >Open-source code</a
+          >
+          by Suzanne Sharman
+        </small>
       </div>
-
-      <hr />
-      <div class="container forecast">
-        <div class="row weekDays">
-          <div class="col">Tue</div>
-          <div class="col">Wed</div>
-          <div class="col">Thurs</div>
-          <div class="col">Fri</div>
-          <div class="col">Sat</div>
-          <div class="col">Fri</div>
-          <div class="col">Sat</div>
-        </div>
-        <div class="row forecastImage">
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-          <div class="col">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-              alt="Current Weather"
-            />
-          </div>
-        </div>
-        <div class="row forecastTemp">
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-          <div class="col">
-            <span class="high">26°</span>
-            <span class="low">26°</span>
-          </div>
-        </div>
-      <br />
-      <footer>
-        <a href="https://github.com/suzStar/vanillaWeatherApp" target="_blank"
-          >Open-source code</a
-        >
-        by Suzanne Sharman
-      </footer>
     </div>
     <script src="src/app.js"></script>
   </body>
