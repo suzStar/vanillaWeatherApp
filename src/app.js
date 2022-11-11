@@ -22,7 +22,15 @@ function formatDate(timeStamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function iconList(iconURL) {}
+
 function displayTemp(response) {
+  let weatherIcon = document.querySelector("#current-weather-icon");
+  let iconImage = response.data.condition.icon_url;
+  let iconImageAlt = response.data.condition.icon;
+  weatherIcon.setAttribute("src", iconImage);
+  weatherIcon.setAttribute("alt", iconImageAlt);
+
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#current-temp");
 
@@ -33,7 +41,7 @@ function displayTemp(response) {
   descriptionElement.innerHTML = response.data.condition.description;
 
   let precipitationElement = document.querySelector("#precipitation");
-  precipitation = Math.round(response.data.temperature);
+  let precipitation = Math.round(response.data.temperature);
   precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
 
   let humidityElement = document.querySelector("#humidity");
@@ -50,7 +58,7 @@ function displayTemp(response) {
 
 const apiKey = "d04fb3e0250t4fa0be3579oeba197b2c";
 const apiURL = "https://api.shecodes.io/weather/v1/current?";
-let cityQuery = "Lisbon";
+let cityQuery = "LA";
 let longitude = "";
 let latitude = "";
 
