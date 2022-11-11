@@ -66,3 +66,30 @@
   padding-left: 6px;
   vertical-align: top;
 }
+
+.forecast {
+  display: inline-block;
+  text-align: center;
+}
+.weekDays {
+  color: #202124;
+  padding-top: 7px;
+}
+
+.forecastImage {
+  height: 48px;
+}
+
+.forecastTemp {
+  font-size: 13px;
+}
+
+.high {
+  color: #202124;
+  padding-right: 5px;
+}
+
+.low {
+  font-size: 13px;
+  color: #70757a;
+}
