@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>WeatherApp</title>
   </head>
   <body>
@@ -42,23 +43,23 @@
                 alt="sunny"
               />
               <div class="temp-unit">
-                <span class="temp">12</span
+                <span class="temp" id="current-temp">12</span
                 ><span class="unit"
                   ><a href="#">°C</a> | <a href="#">°F</a></span
                 >
               </div>
 
               <ul class="weather-details">
-                <li>Precipitation: 2%</li>
-                <li>Humidity: 78%</li>
-                <li>Wind: 15 mph</li>
+                <li id="precipitation">Precipitation: 2%</li>
+                <li id="humidity">Humidity: 78%</li>
+                <li id="wind">Wind: 15 mph</li>
               </ul>
             </div>
             <div class="col-md-5">
               <ul class="local-details">
-                <li class="location">Princes Risborough, UK</li>
-                <li class="dayTime">Thursday 14:00</li>
-                <li class="local-condition">Cloudy</li>
+                <li class="location" id="city">Princes Risborough, UK</li>
+                <li class="dayTime" id="day-time">Thursday 14:00</li>
+                <li class="local-condition" id="description">Cloudy</li>
               </ul>
             </div>
           </div>

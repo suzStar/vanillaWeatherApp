@@ -17,6 +17,7 @@
   padding-left: 6px;
   vertical-align: top;
   list-style-type: none;
+  text-transform: capitalize;
 }
 .location {
   font-weight: 400;
