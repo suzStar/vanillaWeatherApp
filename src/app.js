@@ -40,9 +40,9 @@ function displayTemp(response) {
   tempElement.innerHTML = Math.round(celsiusTemp);
   descriptionElement.innerHTML = response.data.condition.description;
 
-  let precipitationElement = document.querySelector("#precipitation");
-  let precipitation = Math.round(response.data.temperature);
-  precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
+  // let precipitationElement = document.querySelector("#precipitation");
+  // let precipitation = Math.round(response.data.temperature);
+  // precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
 
   let humidityElement = document.querySelector("#humidity");
   humidity = Math.round(response.data.temperature.humidity);
@@ -78,6 +78,8 @@ function displayCelsius(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(celsiusTemp);
+  // celsiusConversion.innerHTML = "°C";
+  // fahrenheitConversion.innerHTML = "°F";
   celsiusConversion.classList.add("active");
   fahrenheitConversion.classList.remove("active");
 }
@@ -87,6 +89,8 @@ function displayFahrenheit(event) {
   let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(fahrenheitTemp);
+  // celsiusConversion.innerHTML = "°F";
+  // fahrenheitConversion.innerHTML = "°C";
   celsiusConversion.classList.remove("active");
   fahrenheitConversion.classList.add("active");
 }

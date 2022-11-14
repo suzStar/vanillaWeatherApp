@@ -51,9 +51,10 @@
   list-style-type: none;
 }
 
-.a {
+a {
   text-decoration: none;
   cursor: default;
+  color: #202124;
 }
 
 .temp-unit {
@@ -80,11 +81,11 @@
   cursor: default;
   text-decoration: none;
   cursor: default;
+  font-weight: 600;
 }
 .unit .active:hover {
   cursor: default;
   text-decoration: none;
-  color: purple;
   text-decoration: none;
   cursor: default;
 }
