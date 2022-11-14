@@ -29,13 +29,15 @@ function displayTemp(response) {
   weatherIcon.setAttribute("src", iconImage);
   weatherIcon.setAttribute("alt", iconImageAlt);
 
+  celsiusTemp = response.data.temperature.current;
+
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#current-temp");
 
   let descriptionElement = document.querySelector("#description");
 
   cityElement.innerHTML = response.data.city;
-  tempElement.innerHTML = Math.round(response.data.temperature.current);
+  tempElement.innerHTML = Math.round(celsiusTemp);
   descriptionElement.innerHTML = response.data.condition.description;
 
   let precipitationElement = document.querySelector("#precipitation");
@@ -70,9 +72,34 @@ function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
-  console.log(cityInput.value);
 }
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+  celsiusConversion.classList.add("active");
+  fahrenheitConversion.classList.remove("active");
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  let tempElement = document.querySelector("#current-temp");
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  celsiusConversion.classList.remove("active");
+  fahrenheitConversion.classList.add("active");
+}
+
+let celsiusTemp = null;
 
 let form = document.querySelector("#city-search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusConversion = document.querySelector("#celsius-link");
+celsiusConversion.addEventListener("click", displayCelsius);
+
+let fahrenheitConversion = document.querySelector("#fahrenheit-link");
+fahrenheitConversion.addEventListener("click", displayFahrenheit);
+
 search("London");

@@ -51,22 +51,42 @@
   list-style-type: none;
 }
 
+.a {
+  text-decoration: none;
+  cursor: default;
+}
+
 .temp-unit {
   display: inline-block;
   padding-left: 10px;
   vertical-align: top;
+  color: #202124;
 }
 .temp {
-  color: #202124;
   font-weight: 400;
   font-size: 55px;
 }
 
 .unit {
-  color: #202124;
   font-size: 16px;
   padding-left: 6px;
   vertical-align: 30px;
+  text-decoration: none;
+  cursor: default;
+}
+
+.unit .active {
+  color: #202124;
+  cursor: default;
+  text-decoration: none;
+  cursor: default;
+}
+.unit .active:hover {
+  cursor: default;
+  text-decoration: none;
+  color: purple;
+  text-decoration: none;
+  cursor: default;
 }
 
 .forecast {
