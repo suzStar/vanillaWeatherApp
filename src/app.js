@@ -22,8 +22,6 @@ function formatDate(timeStamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function iconList(iconURL) {}
-
 function displayTemp(response) {
   let weatherIcon = document.querySelector("#current-weather-icon");
   let iconImage = response.data.condition.icon_url;
@@ -56,13 +54,25 @@ function displayTemp(response) {
   timeDateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 
-const apiKey = "d04fb3e0250t4fa0be3579oeba197b2c";
-const apiURL = "https://api.shecodes.io/weather/v1/current?";
-let cityQuery = "LA";
-let longitude = "";
-let latitude = "";
+function search(city) {
+  const apiKey = "d04fb3e0250t4fa0be3579oeba197b2c";
+  const apiURL = "https://api.shecodes.io/weather/v1/current?";
+  let longitude = "";
+  let latitude = "";
 
-let seachedCity = `${apiURL}query=${cityQuery}&key=${apiKey}&units=metric`;
-let geoLocation = `${apiURL}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  let seachedCity = `${apiURL}query=${city}&key=${apiKey}&units=metric`;
+  let geoLocation = `${apiURL}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
 
-axios.get(seachedCity).then(displayTemp);
+  axios.get(seachedCity).then(displayTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+  console.log(cityInput.value);
+}
+
+let form = document.querySelector("#city-search-form");
+form.addEventListener("submit", handleSubmit);
+search("London");
