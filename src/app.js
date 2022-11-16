@@ -15,29 +15,39 @@ function formatDate(timeStamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-  let forecastHTML = "";
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
 
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  return daysOfWeek[day];
+}
+
+function displayForecast(response) {
+  let dailyForcast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  dailyForcast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
   <div class="col">
-    <div class="col weekDays">${day}</div>
+    <div class="col weekDays">${formatDay(forecastDay.time)}</div>
     <div class="col">
       <img
-        src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-        alt="Current Weather"
+        src="${forecastDay.condition.icon_url}"
+        alt="${forecastDay.condition.icon}"
+        width="60"
       />
     </div>
     <div class="col">
-      <span class="high">26°</span>
-      <span class="low">26°</span>
+      <span class="high">${Math.round(forecastDay.temperature.maximum)}°</span>
+      <span class="low">${Math.round(forecastDay.temperature.minimum)}°</span>
     </div>
   </div>
-  `;
+    `;
+    }
   });
 
   forecastHTML = forecastHTML;
@@ -84,12 +94,7 @@ function getForecast(coordinates) {
 function search(city) {
   const apiKey = "d04fb3e0250t4fa0be3579oeba197b2c";
   const apiURL = "https://api.shecodes.io/weather/v1/current?";
-  let longitude = "";
-  let latitude = "";
-
   let seachedCity = `${apiURL}query=${city}&key=${apiKey}&units=metric`;
-  let geoLocation = `${apiURL}?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
-
   axios.get(seachedCity).then(displayTemp);
 }
 
