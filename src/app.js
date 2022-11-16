@@ -12,48 +12,62 @@ function formatDate(timeStamp) {
   let hours = date.getHours();
   let minutes = date.getMinutes();
   let day = days[date.getDay()];
-
-  //   let formatedTime = date.toLocaleString("en-UK", {
-  //     hour: "numeric",
-  //     minute: "numeric",
-  //     hour12: true,
-  //   });
-  //return `${day} ${formatedTime}`;
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecastHTML = "";
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col">
+    <div class="col weekDays">${day}</div>
+    <div class="col">
+      <img
+        src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+        alt="Current Weather"
+      />
+    </div>
+    <div class="col">
+      <span class="high">26°</span>
+      <span class="low">26°</span>
+    </div>
+  </div>
+  `;
+  });
+
+  forecastHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemp(response) {
+  let cityElement = document.querySelector("#city");
+  let timeDateElement = document.querySelector("#day-time");
+  let descriptionElement = document.querySelector("#description");
   let weatherIcon = document.querySelector("#current-weather-icon");
   let iconImage = response.data.condition.icon_url;
   let iconImageAlt = response.data.condition.icon;
-  weatherIcon.setAttribute("src", iconImage);
-  weatherIcon.setAttribute("alt", iconImageAlt);
-
-  celsiusTemp = response.data.temperature.current;
-
-  let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#current-temp");
-
-  let descriptionElement = document.querySelector("#description");
-
-  cityElement.innerHTML = response.data.city;
-  tempElement.innerHTML = Math.round(celsiusTemp);
-  descriptionElement.innerHTML = response.data.condition.description;
-
-  // let precipitationElement = document.querySelector("#precipitation");
-  // let precipitation = Math.round(response.data.temperature);
-  // precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
-
+  celsiusTemp = response.data.temperature.current;
   let humidityElement = document.querySelector("#humidity");
   humidity = Math.round(response.data.temperature.humidity);
-  humidityElement.innerHTML = `Humidity: ${humidity}%`;
-
   let windElement = document.querySelector("#wind");
-  let windSpeed = Math.round(response.data.wind.speed);
-  windElement.innerHTML = `Wind: ${windSpeed} mph`;
+  windSpeed = Math.round(response.data.wind.speed);
+  // let precipitationElement = document.querySelector("#precipitation");
+  // precipitation = Math.round(response.data.temperature);
 
-  let timeDateElement = document.querySelector("#day-time");
+  weatherIcon.setAttribute("src", iconImage, "alt", iconImageAlt);
   timeDateElement.innerHTML = formatDate(response.data.time * 1000);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
+  tempElement.innerHTML = Math.round(celsiusTemp);
+  humidityElement.innerHTML = `Humidity: ${humidity}%`;
+  windElement.innerHTML = `Wind: ${windSpeed} mph`;
+  // precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
 }
 
 function search(city) {
@@ -107,3 +121,4 @@ let fahrenheitConversion = document.querySelector("#fahrenheit-link");
 fahrenheitConversion.addEventListener("click", displayFahrenheit);
 
 search("London");
+displayForecast();

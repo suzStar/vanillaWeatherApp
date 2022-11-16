@@ -20,9 +20,7 @@
           <div class="input-group rounded">
             <input id="city-input" type="search" class="form-control" placeholder="Search here" aria-label="Search"
               aria-describedby="search-addon" />
-            <span class="btn btn-primary border-2" id="search-addon">
-              SEARCH
-            </span>
+            <input class="btn btn-primary border-2" type="submit" value="Search" />
           </div>
         </form>
 
@@ -53,54 +51,9 @@
         </div>
 
         <hr />
-        <div class="container forecast">
-          <div class="row weekDays">
-            <div class="col">Tue</div>
-            <div class="col">Wed</div>
-            <div class="col">Thurs</div>
-            <div class="col">Fri</div>
-            <div class="col">Sat</div>
-          </div>
-          <div class="row forecastImage">
-            <div class="col">
-              <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="Current Weather" />
-            </div>
-            <div class="col">
-              <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="Current Weather" />
-            </div>
-            <div class="col">
-              <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="Current Weather" />
-            </div>
-            <div class="col">
-              <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="Current Weather" />
-            </div>
-            <div class="col">
-              <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png" alt="Current Weather" />
-            </div>
-          </div>
-          <div class="row forecastTemp">
-            <div class="col">
-              <span class="high">26°</span>
-              <span class="low">26°</span>
-            </div>
-            <div class="col">
-              <span class="high">26°</span>
-              <span class="low">26°</span>
-            </div>
-            <div class="col">
-              <span class="high">26°</span>
-              <span class="low">26°</span>
-            </div>
-            <div class="col">
-              <span class="high">26°</span>
-              <span class="low">26°</span>
-            </div>
-            <div class="col">
-              <span class="high">26°</span>
-              <span class="low">26°</span>
-            </div>
-          </div>
+        <div class="container row weatherForecast" id="forecast">
         </div>
+
       </div>
       <small>
         <a href="https://github.com/suzStar/vanillaWeatherApp" target="_blank">Open-source code</a>

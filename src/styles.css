@@ -90,8 +90,8 @@ a {
   cursor: default;
 }
 
-.forecast {
-  display: inline-block;
+.weatherForecast {
+  margin: auto 0px;
   text-align: center;
 }
 .weekDays {
@@ -113,6 +113,5 @@ a {
 }
 
 .low {
-  font-size: 13px;
   color: #70757a;
 }
