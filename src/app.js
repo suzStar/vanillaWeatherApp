@@ -68,6 +68,17 @@ function displayTemp(response) {
   humidityElement.innerHTML = `Humidity: ${humidity}%`;
   windElement.innerHTML = `Wind: ${windSpeed} mph`;
   // precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
+
+  getForecast(response.data.coordinates);
+}
+function getForecast(coordinates) {
+  const apiKey = "d04fb3e0250t4fa0be3579oeba197b2c";
+  const apiURL = "https://api.shecodes.io/weather/v1/forecast?";
+  let longitude = coordinates.longitude;
+  let latitude = coordinates.latitude;
+
+  let forecastURL = `${apiURL}lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
+  axios.get(forecastURL).then(displayForecast);
 }
 
 function search(city) {
@@ -121,4 +132,3 @@ let fahrenheitConversion = document.querySelector("#fahrenheit-link");
 fahrenheitConversion.addEventListener("click", displayFahrenheit);
 
 search("London");
-displayForecast();
