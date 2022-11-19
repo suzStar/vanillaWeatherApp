@@ -5,95 +5,81 @@
 }
 
 .weather-app {
-  padding: 20px;
   border: 1px solid #dadce0;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: 0% 40%;
+}
+
+.wrapper-container {
+  padding: 20px;
   border-radius: 5px;
 }
 
+.forecaseBase {
+  padding: 20px 0;
+  background: #ffffffBF;
+}
+
 .local-details {
-  text-align: right;
+  text-align: center;
   font-size: 16px;
-  margin-top: 6px;
-  padding-left: 6px;
+  margin-top: 16px;
   vertical-align: top;
   list-style-type: none;
   text-transform: capitalize;
 }
+
+.descriptionWrapper {
+  margin: 0 0 -20px 0;
+}
+
 .location {
   font-weight: 400;
-  color: #202124;
-  font-size: 20px;
+  font-size: 45px;
+  line-height: 50px;
 }
 
 .dayTime {
-  color: #70757a;
-  font-size: 16px;
+  font-size: 17px;
 }
 
-.local-condition {
-  color: #70757a;
-  font-size: 16px;
+.currentWeatherData {
+  margin: 0 auto 200px auto;
+  max-width: 85%;
+  align-items: center;
 }
 
-.current-weather-icon {
-  display: inline-block;
-  vertical-align: top;
-  width: 22%;
-}
-.weather-details {
-  text-align: left;
-  color: #70757a;
-  display: inline-block;
-  font-size: 12px;
-  line-height: 15px;
-  padding-left: 9px;
-  padding-top: 15px;
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  cursor: default;
-  color: #202124;
-}
-
-.temp-unit {
-  display: inline-block;
-  padding-left: 10px;
-  vertical-align: top;
-  color: #202124;
-}
 .temp {
   font-weight: 400;
-  font-size: 55px;
+  font-size: 140px;
+  text-align: right;
+  margin-left: 50px;
 }
 
 .unit {
-  font-size: 16px;
-  padding-left: 6px;
-  vertical-align: 30px;
-  text-decoration: none;
-  cursor: default;
+  font-weight: 400;
+  font-size: 20px;
+  vertical-align: 85px;
 }
 
-.unit .active {
-  color: #202124;
-  cursor: default;
-  text-decoration: none;
-  cursor: default;
+.description {
   font-weight: 600;
+  font-size: 18.5px;
+  text-transform: uppercase;
 }
-.unit .active:hover {
-  cursor: default;
-  text-decoration: none;
-  text-decoration: none;
-  cursor: default;
+
+
+.weatherDetails {
+  margin-top: 5px;
+  text-align: center;
 }
 
 .weatherForecast {
   margin: auto 0px;
   text-align: center;
 }
+
 .weekDays {
   color: #202124;
   padding-top: 7px;
@@ -114,4 +100,8 @@ a {
 
 .low {
   color: #70757a;
+}
+
+.citySearch {
+  padding: 20px 10px 0;
 }

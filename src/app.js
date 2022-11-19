@@ -10,8 +10,61 @@ function formatDate(timeStamp) {
     "Saturday",
   ];
   let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
   let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
   let day = days[date.getDay()];
+
+  let backgroundElement = document.querySelector("#background-Image");
+  let colorElement = document.querySelector("#timeStyle");
+  let humidityIconElement = document.querySelector("#humidityIcon");
+  let windIconElement = document.querySelector("#windIcon");
+
+  let morningImage =
+    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/503/original/Morning.png?1668785232)";
+  let afternoonImage =
+    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/501/original/Afternoon.png?1668785221)";
+  let eveningImage =
+    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/502/original/Evening.png?1668785227)";
+  let nightImage =
+    "url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/504/original/Night.png?1668785242)";
+
+  let windBlackIcon =
+    "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/612/original/windBlack.png?1668858083";
+  let windWhiteIcon =
+    "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/613/original/windWhite.png?1668858091";
+  let humidityBlackIcon =
+    "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/610/original/humidityBlack.png?1668858070";
+  let humidityWhiteIcon =
+    "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/054/611/original/humidityWhite.png?1668858075";
+
+  if (hours < 12) {
+    backgroundElement.style.backgroundImage = morningImage;
+    colorElement.style.color = "#242424";
+    humidityIconElement.setAttribute("src", humidityBlackIcon);
+    windIconElement.setAttribute("src", windBlackIcon);
+  } else if (hours < 18) {
+    backgroundElement.style.backgroundImage = afternoonImage;
+    colorElement.style.color = "#242424";
+    humidityIconElement.setAttribute("src", humidityBlackIcon);
+    windIconElement.setAttribute("src", windBlackIcon);
+  } else if (hours < 22) {
+    backgroundElement.style.backgroundImage = eveningImage;
+    colorElement.style.color = "#242424";
+    humidityIconElement.setAttribute("src", humidityBlackIcon);
+    windIconElement.setAttribute("src", windBlackIcon);
+  } else if (hours < 00) {
+    backgroundElement.style.backgroundImage = nightImage;
+    colorElement.style.color = "#ffffff";
+    humidityIconElement.setAttribute("src", humidityWhiteIcon);
+    windIconElement.setAttribute("src", windWhiteIcon);
+  }
+
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -26,6 +79,7 @@ function formatDay(timestamp) {
 function displayForecast(response) {
   let dailyForcast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = "";
 
   dailyForcast.forEach(function (forecastDay, index) {
     if (index < 5) {
@@ -67,17 +121,14 @@ function displayTemp(response) {
   humidity = Math.round(response.data.temperature.humidity);
   let windElement = document.querySelector("#wind");
   windSpeed = Math.round(response.data.wind.speed);
-  // let precipitationElement = document.querySelector("#precipitation");
-  // precipitation = Math.round(response.data.temperature);
 
   weatherIcon.setAttribute("src", iconImage, "alt", iconImageAlt);
   timeDateElement.innerHTML = formatDate(response.data.time * 1000);
   cityElement.innerHTML = response.data.city;
   descriptionElement.innerHTML = response.data.condition.description;
   tempElement.innerHTML = Math.round(celsiusTemp);
-  humidityElement.innerHTML = `Humidity: ${humidity}%`;
-  windElement.innerHTML = `Wind: ${windSpeed} mph`;
-  // precipitationElement.innerHTML = `Precipitation: ${precipitation}%`;
+  humidityElement.innerHTML = `${humidity}%`;
+  windElement.innerHTML = `${windSpeed} mph`;
 
   getForecast(response.data.coordinates);
 }
@@ -108,32 +159,11 @@ function displayCelsius(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#current-temp");
   tempElement.innerHTML = Math.round(celsiusTemp);
-  // celsiusConversion.innerHTML = "°C";
-  // fahrenheitConversion.innerHTML = "°F";
-  celsiusConversion.classList.add("active");
-  fahrenheitConversion.classList.remove("active");
-}
-
-function displayFahrenheit(event) {
-  event.preventDefault();
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  let tempElement = document.querySelector("#current-temp");
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-  // celsiusConversion.innerHTML = "°F";
-  // fahrenheitConversion.innerHTML = "°C";
-  celsiusConversion.classList.remove("active");
-  fahrenheitConversion.classList.add("active");
 }
 
 let celsiusTemp = null;
 
 let form = document.querySelector("#city-search-form");
 form.addEventListener("submit", handleSubmit);
-
-let celsiusConversion = document.querySelector("#celsius-link");
-celsiusConversion.addEventListener("click", displayCelsius);
-
-let fahrenheitConversion = document.querySelector("#fahrenheit-link");
-fahrenheitConversion.addEventListener("click", displayFahrenheit);
 
 search("London");

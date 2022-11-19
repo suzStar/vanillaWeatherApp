@@ -9,51 +9,63 @@
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
   <link rel="stylesheet" href="src/styles.css" />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="https://kit.fontawesome.com/1067d75b5e.js" crossorigin="anonymous"></script>
   <title>WeatherApp</title>
 </head>
 
 <body>
   <div class="container">
     <div class="weather-app-wrapper">
-      <div class="weather-app">
-        <form class="citySearch" id="city-search-form">
-          <div class="input-group rounded">
-            <input id="city-input" type="search" class="form-control" placeholder="Search here" aria-label="Search"
-              aria-describedby="search-addon" />
-            <input class="btn btn-primary border-2" type="submit" value="Search" />
-          </div>
-        </form>
+      <div class="weather-app" id="background-Image">
 
-        <br />
 
-        <div class="row">
-          <div class="col-md-7">
-            <img class="current-weather-icon" id="current-weather-icon" src="" alt="" />
-            <div class="temp-unit">
-              <span class="temp" id="current-temp">12</span><span class="unit"><a href="#" id="celsius-link"
-                  class="active">°C</a> |
-                <a href="#" id="fahrenheit-link">°F</a></span>
+        <div class="wrapper-container" id="timeStyle">
+          <ul class="local-details">
+            <li class="location" id="city">Princes Risborough, UK</li>
+            <li class="dayTime" id="day-time">Thursday 14:00</li>
+          </ul>
+
+          <div class="row currentWeatherData">
+            <div class="col">
+              <span class="temp" id="current-temp">12</span><span class="unit">°C
             </div>
 
-            <ul class="weather-details">
-              <!-- <li id="precipitation">Precipitation: 2%</li> -->
-              <li id="humidity">Humidity: 78%</li>
-              <li id="wind">Wind: 15 mph</li>
-            </ul>
-          </div>
-          <div class="col-md-5">
-            <ul class="local-details">
-              <li class="location" id="city">Princes Risborough, UK</li>
-              <li class="dayTime" id="day-time">Thursday 14:00</li>
-              <li class="local-condition" id="description">Cloudy</li>
-            </ul>
+            <div class="col weatherDetails">
+              <div class="descriptionWrapper">
+                <div class="col">
+                  <span class="description" id="description">Cloudy</span>
+                </div>
+                <div class="col">
+                  <img src="images/humidity.png" alt="Humidity Icon" width="7.5" id="humidityIcon" /> <span
+                    id="humidity">78%</span>
+                  <img src="images/wind.png" alt="Wind Icon" width="10" id="windIcon" />
+                  <span id="wind">15 mph</span>
+                </div>
+              </div>
+              <div class="col" style="height: 75px;">
+                <img class="current-weather-icon" id="current-weather-icon"
+                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png" alt="" width="90" />
+              </div>
+            </div>
           </div>
         </div>
 
-        <hr />
-        <div class="container row weatherForecast" id="forecast">
-        </div>
 
+        <div class="forecaseBase">
+          <div class="container row weatherForecast" id="forecast">
+          </div>
+          <div class="wrapper-container">
+            <form class="citySearch" id="city-search-form">
+              <div class="input-group rounded">
+                <input id="city-input" type="search" class="form-control" placeholder="Search here" aria-label="Search"
+                  aria-describedby="search-addon" />
+                <span class="btn btn-secondary border-2" id="city-input" type="search" value="Search"><i
+                    class="fas fa-search"></i></span>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
       <small>
         <a href="https://github.com/suzStar/vanillaWeatherApp" target="_blank">Open-source code</a>
